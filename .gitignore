@@ -1,0 +1,6 @@
+.idea/
+node_modules/
+
+NodeJS/node_modules/
+
+VueJS/test-project-vue-client/node_modules/
