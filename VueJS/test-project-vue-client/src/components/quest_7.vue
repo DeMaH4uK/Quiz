@@ -1,17 +1,28 @@
 <template>
-  <div>
-    <h1>{{ item.question }}</h1>
-    <el-upload
-        class="upload-demo"
-        drag
-        action="http://localhost:3000/test"
-        :before-upload="check"
-        :headers="headers">
-      <i class="el-icon-upload"></i>
-      <div class="el-upload__text">Drop file here or <em>click to upload</em></div>
-      <div class="el-upload__tip" slot="tip">jpg/png files with a size less than 500kb</div>
-    </el-upload>
-  </div>
+  <el-container>
+    <el-main>
+      <el-row>
+        <el-col>
+          <h1>{{ item.question }}</h1>
+        </el-col>
+      </el-row>
+
+      <el-row>
+        <el-col>
+          <el-upload
+              class="upload-demo"
+              drag
+              action="http://localhost:3000/test"
+              :before-upload="check"
+              :headers="headers">
+            <i class="el-icon-upload"></i>
+            <div class="el-upload__text">Drop file here or <em>click to upload</em></div>
+            <div class="el-upload__tip" slot="tip">jpg/png files with a size less than 500kb</div>
+          </el-upload>
+        </el-col>
+      </el-row>
+    </el-main>
+  </el-container>
 </template>
 
 <script>
