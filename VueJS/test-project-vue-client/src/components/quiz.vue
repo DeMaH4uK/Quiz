@@ -33,59 +33,69 @@
       </el-menu>
     </el-header>
 
-    <div class="quiz" v-for="(item, index) in $store.getters.QUESTIONS" :key="item.id">
-      <div v-show="index === questionIndex">
-<!--        1 choice-->
-        <div v-show="index === 0">
-          <quest_1 :item="item" :index="index" :user-answers="userAnswers" />
-        </div>
-        <div v-show="index === 1">
-          <quest_2 :item="item" :index="index" :user-answers="userAnswers" />
-        </div>
+    <el-main>
+      <el-row type="flex" justify="left">
+        <el-col :span="24">
+          <div class="quiz" v-for="(item, index) in $store.getters.QUESTIONS" :key="item.id">
+            <div v-show="index === questionIndex">
+      <!--        1 choice-->
+              <div v-show="index === 0">
+                <quest_1 :item="item" :index="index" :user-answers="userAnswers" />
+              </div>
+              <div v-show="index === 1">
+                <quest_2 :item="item" :index="index" :user-answers="userAnswers" />
+              </div>
 
-<!--        multiple choice-->
-        <div v-show="index === 2">
-          <quest_3 :item="item" :index="index" :user-answers="userAnswers" />
-        </div>
-        <div v-show="index === 3">
-          <quest_4 :item="item" :index="index" :user-answers="userAnswers" />
-        </div>
-        <div v-show="index === 4">
-          <quest_5 :item="item" :index="index" :user-answers="userAnswers" />
-        </div>
-        <div v-show="index === 5">
-          <quest_6 :item="item" :index="index" :user-answers="userAnswers" />
-        </div>
+      <!--        multiple choice-->
+              <div v-show="index === 2">
+                <quest_3 :item="item" :index="index" :user-answers="userAnswers" />
+              </div>
+              <div v-show="index === 3">
+                <quest_4 :item="item" :index="index" :user-answers="userAnswers" />
+              </div>
+              <div v-show="index === 4">
+                <quest_5 :item="item" :index="index" :user-answers="userAnswers" />
+              </div>
+              <div v-show="index === 5">
+                <quest_6 :item="item" :index="index" :user-answers="userAnswers" />
+              </div>
 
-<!--        upload-->
-        <div v-show="index === 6">
-          <quest_7 :item="item" :index="index" :user-answers="userAnswers" />
-        </div>
+      <!--        upload-->
+              <div v-show="index === 6">
+                <quest_7 :item="item" :index="index" :user-answers="userAnswers" />
+              </div>
 
-<!--        1 choice-->
-        <div v-show="index === 7">
-          <quest_8 :item="item" :index="index" :user-answers="userAnswers" />
-        </div>
-        <div v-show="index === 8">
-          <quest_9 :item="item" :index="index" :user-answers="userAnswers" />
-        </div>
-        <div v-show="index === 9">
-          <quest_10 :item="item" :index="index" :user-answers="userAnswers" />
-        </div>
+      <!--        1 choice-->
+              <div v-show="index === 7">
+                <quest_8 :item="item" :index="index" :user-answers="userAnswers" />
+              </div>
+              <div v-show="index === 8">
+                <quest_9 :item="item" :index="index" :user-answers="userAnswers" />
+              </div>
+              <div v-show="index === 9">
+                <quest_10 :item="item" :index="index" :user-answers="userAnswers" />
+              </div>
 
-        <button v-if="questionIndex > 0" v-on:click="prev">prev</button>
+              <button v-if="questionIndex > 0" v-on:click="prev">prev</button>
 
-        <button v-on:click="next">next</button>
-      </div>
-    </div>
+              <button v-on:click="next">next</button>
+            </div>
+          </div>
+        </el-col>
+      </el-row>
 
-    <div v-show="questionIndex === $store.getters.QUESTIONS.length">
-      <h2>Quiz finished</h2>
-      <p>Итоговый счёт баллов: {{ final() }} / {{ $store.getters.QUESTIONS.length }}</p>
-      <p>Процент ответов: {{ score() }}%</p>
-      <p>Оценка: {{ mark(score()) }}</p>
-      <button v-on:click="oneMoreTime">One more time!</button>
-    </div>
+      <el-row>
+        <el-col :span="24">
+          <div v-show="questionIndex === $store.getters.QUESTIONS.length">
+            <h2>Quiz finished</h2>
+            <p>Итоговый счёт баллов: {{ final() }} / {{ $store.getters.QUESTIONS.length }}</p>
+            <p>Процент ответов: {{ score() }}%</p>
+            <p>Оценка: {{ mark(score()) }}</p>
+            <button v-on:click="oneMoreTime">One more time!</button>
+          </div>
+        </el-col>
+      </el-row>
+    </el-main>
 
   </el-container>
 </template>
@@ -166,4 +176,14 @@
 </script>
 
 <style>
+#main {
+  display: table-caption
+}
+#sub {
+  float: left;
+}
+
+.quiz {
+  display: inline-block;
+}
 </style>

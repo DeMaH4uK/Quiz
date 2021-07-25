@@ -85,7 +85,16 @@
     /* background-color: #E9EEF3; */
     color: #333;
     text-align: center;
-    line-height: 160px;
+    /*line-height: 160px;*/
+  }
+  .el-row {
+    margin-bottom: 20px;
+    /*&:last-child {*/
+    /*  margin-bottom: 0;*/
+    /*}*/
+  }
+  .el-col {
+    border-radius: 4px;
   }
   .text {
     font-size: 2em;
