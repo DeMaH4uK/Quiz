@@ -76,9 +76,22 @@
                 <quest_10 :item="item" :index="index" :user-answers="userAnswers" />
               </div>
 
-              <button v-if="questionIndex > 0" v-on:click="prev">prev</button>
+<!--              <button v-if="questionIndex > 0" v-on:click="prev">prev</button>-->
+              <el-button
+                  type="primary"
+                  v-if="questionIndex > 0"
+                  v-on:click="prev"
+                  round>
+                prev
+              </el-button>
 
-              <button v-on:click="next">next</button>
+<!--              <button v-on:click="next">next</button>-->
+              <el-button
+                  type="primary"
+                  v-on:click="next"
+                  round>
+                next
+              </el-button>
             </div>
           </div>
         </el-col>
