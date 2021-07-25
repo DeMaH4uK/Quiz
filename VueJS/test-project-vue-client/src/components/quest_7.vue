@@ -16,8 +16,8 @@
               :before-upload="check"
               :headers="headers">
             <i class="el-icon-upload"></i>
-            <div class="el-upload__text">Drop file here or <em>click to upload</em></div>
-            <div class="el-upload__tip" slot="tip">jpg/png files with a size less than 500kb</div>
+            <div class="el-upload__text">Перетащите файл суда или <em>нажмите для загрузки</em></div>
+            <div class="el-upload__tip" slot="tip">Файл в формате txt</div>
           </el-upload>
         </el-col>
       </el-row>
@@ -26,7 +26,7 @@
 </template>
 
 <script>
-import state from '../store/index'
+// import state from '../store/index'
 
 export default {
   name: "quest_7",
@@ -34,7 +34,7 @@ export default {
   data() {
     return {
       headers: {
-        Authorization: `Bearer ${state.getters.TOKENS.accessToken}`
+        // Authorization: `Bearer ${state.getters.TOKENS.accessToken}`
       },
     };
   },
@@ -42,8 +42,8 @@ export default {
     check: function(file) {
       // console.log(file);
       switch (file.type.toLowerCase()) {
-        case ("image/jpg").toLowerCase():
-        case ("image/png").toLowerCase():
+        // case ("image/jpg").toLowerCase():
+        case ("text/plain").toLowerCase():
           if (file.name.split('.').slice(0, -1).join('.').toLowerCase() === this.item.responses[0].text.toLowerCase()) {
             // console.log("yes");
             this.userAnswers[this.index] = 1;
@@ -56,7 +56,7 @@ export default {
           break;
 
         default:
-          alert("Это не png/jpg файл!");
+          alert("Это не текстовый файл (txt) файл!");
           this.userAnswers[this.index] = 0;
           return false;
       }
