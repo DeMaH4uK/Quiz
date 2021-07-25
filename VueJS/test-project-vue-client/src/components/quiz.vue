@@ -76,7 +76,6 @@
                 <quest_10 :item="item" :index="index" :user-answers="userAnswers" />
               </div>
 
-<!--              <button v-if="questionIndex > 0" v-on:click="prev">prev</button>-->
               <el-button
                   type="primary"
                   v-if="questionIndex > 0"
@@ -85,7 +84,6 @@
                 prev
               </el-button>
 
-<!--              <button v-on:click="next">next</button>-->
               <el-button
                   type="primary"
                   v-on:click="next"
@@ -104,7 +102,11 @@
             <p>Итоговый счёт баллов: {{ final() }} / {{ $store.getters.QUESTIONS.length }}</p>
             <p>Процент ответов: {{ score() }}%</p>
             <p>Оценка: {{ mark(score()) }}</p>
-            <button v-on:click="oneMoreTime">One more time!</button>
+            <el-button
+                round
+                v-on:click="oneMoreTime">
+              One more time!
+            </el-button>
           </div>
         </el-col>
       </el-row>
