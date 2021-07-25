@@ -1,17 +1,30 @@
 <template>
-  <div>
-    <h1>{{ item.question }}</h1>
-    <el-checkbox-group
-        v-model="selectedItems"
-        :min="0"
-        :max="countOfRightAnswers">
-      <el-checkbox v-for="(response) in item.responses" :key="response.text" :label="response.text"
-                   @change="checking" :name="`${response.correct}`"
-                   style="display:block;">
-        {{ response.text }}
-      </el-checkbox>
-    </el-checkbox-group>
-  </div>
+  <el-container>
+    <el-main>
+      <el-row>
+        <el-col>
+          <h1>{{ item.question }}</h1>
+        </el-col>
+      </el-row>
+
+      <el-row>
+        <el-col>
+          <el-checkbox-group
+              id="main"
+              v-model="selectedItems"
+              :min="0"
+              :max="countOfRightAnswers">
+            <el-checkbox
+                id="sub"
+                v-for="(response) in item.responses" :key="response.text" :label="response.text"
+                @change="checking" :name="`${response.correct}`">
+              {{ response.text }}
+            </el-checkbox>
+          </el-checkbox-group>
+        </el-col>
+      </el-row>
+    </el-main>
+  </el-container>
 </template>
 
 <script>
